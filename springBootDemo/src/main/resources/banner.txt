@@ -1,0 +1,47 @@
+
+
+   SSSSSSSSSSSSSSS hhhhhhh                                                  SSSSSSSSSSSSSSS hhhhhhh                                                   iiii  NNNNNNNN        NNNNNNNN  iiii
+ SS:::::::::::::::Sh:::::h                                                SS:::::::::::::::Sh:::::h                                                  i::::i N:::::::N       N::::::N i::::i
+S:::::SSSSSS::::::Sh:::::h                                               S:::::SSSSSS::::::Sh:::::h                                                   iiii  N::::::::N      N::::::N  iiii
+S:::::S     SSSSSSSh:::::h                                               S:::::S     SSSSSSSh:::::h                                                         N:::::::::N     N::::::N
+S:::::S             h::::h hhhhh         aaaaaaaaaaaaa     ooooooooooo   S:::::S             h::::h hhhhh       uuuuuu    uuuuuu    aaaaaaaaaaaaa   iiiiiii N::::::::::N    N::::::Niiiiiiinnnn  nnnnnnnn       ggggggggg   ggggg
+S:::::S             h::::hh:::::hhh      a::::::::::::a  oo:::::::::::oo S:::::S             h::::hh:::::hhh    u::::u    u::::u    a::::::::::::a  i:::::i N:::::::::::N   N::::::Ni:::::in:::nn::::::::nn    g:::::::::ggg::::g
+ S::::SSSS          h::::::::::::::hh    aaaaaaaaa:::::ao:::::::::::::::o S::::SSSS          h::::::::::::::hh  u::::u    u::::u    aaaaaaaaa:::::a  i::::i N:::::::N::::N  N::::::N i::::in::::::::::::::nn  g:::::::::::::::::g
+  SS::::::SSSSS     h:::::::hhh::::::h            a::::ao:::::ooooo:::::o  SS::::::SSSSS     h:::::::hhh::::::h u::::u    u::::u             a::::a  i::::i N::::::N N::::N N::::::N i::::inn:::::::::::::::ng::::::ggggg::::::gg
+    SSS::::::::SS   h::::::h   h::::::h    aaaaaaa:::::ao::::o     o::::o    SSS::::::::SS   h::::::h   h::::::hu::::u    u::::u      aaaaaaa:::::a  i::::i N::::::N  N::::N:::::::N i::::i  n:::::nnnn:::::ng:::::g     g:::::g
+       SSSSSS::::S  h:::::h     h:::::h  aa::::::::::::ao::::o     o::::o       SSSSSS::::S  h:::::h     h:::::hu::::u    u::::u    aa::::::::::::a  i::::i N::::::N   N:::::::::::N i::::i  n::::n    n::::ng:::::g     g:::::g
+            S:::::S h:::::h     h:::::h a::::aaaa::::::ao::::o     o::::o            S:::::S h:::::h     h:::::hu::::u    u::::u   a::::aaaa::::::a  i::::i N::::::N    N::::::::::N i::::i  n::::n    n::::ng:::::g     g:::::g
+            S:::::S h:::::h     h:::::ha::::a    a:::::ao::::o     o::::o            S:::::S h:::::h     h:::::hu:::::uuuu:::::u  a::::a    a:::::a  i::::i N::::::N     N:::::::::N i::::i  n::::n    n::::ng::::::g    g:::::g
+SSSSSSS     S:::::S h:::::h     h:::::ha::::a    a:::::ao:::::ooooo:::::oSSSSSSS     S:::::S h:::::h     h:::::hu:::::::::::::::uua::::a    a:::::a i::::::iN::::::N      N::::::::Ni::::::i n::::n    n::::ng:::::::ggggg:::::g
+S::::::SSSSSS:::::S h:::::h     h:::::ha:::::aaaa::::::ao:::::::::::::::oS::::::SSSSSS:::::S h:::::h     h:::::h u:::::::::::::::ua:::::aaaa::::::a i::::::iN::::::N       N:::::::Ni::::::i n::::n    n::::n g::::::::::::::::g
+S:::::::::::::::SS  h:::::h     h:::::h a::::::::::aa:::aoo:::::::::::oo S:::::::::::::::SS  h:::::h     h:::::h  uu::::::::uu:::u a::::::::::aa:::ai::::::iN::::::N        N::::::Ni::::::i n::::n    n::::n  gg::::::::::::::g
+ SSSSSSSSSSSSSSS    hhhhhhh     hhhhhhh  aaaaaaaaaa  aaaa  ooooooooooo    SSSSSSSSSSSSSSS    hhhhhhh     hhhhhhh    uuuuuuuu  uuuu  aaaaaaaaaa  aaaaiiiiiiiiNNNNNNNN         NNNNNNNiiiiiiii nnnnnn    nnnnnn    gggggggg::::::g
+                                                                                                                                                                                                                         g:::::g
+                                                                                                                                                                                                             gggggg      g:::::g
+                                                                                                                                                                                                              g::::::ggg:::::::g
+                                                                                                                                                                                                               gg:::::::::::::g
+                                                                                                                                                                                                                 ggg::::::ggg
+                                                                                                                                                                                                                    gggggg
+                                                                     ${AnsiColor.BRIGHT_GREEN}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                                                                     ${AnsiColor.BRIGHT_YELLOW}$$                                _.ooOoo._                               $$
+                                                                     ${AnsiColor.BRIGHT_RED}$$                               o888888888o                              $$
+                                                                     ${AnsiColor.BRIGHT_CYAN}$$                               88"  .  "88                              $$
+                                                                     ${AnsiColor.BRIGHT_MAGENTA}$$                               (|  ^_^  |)                              $$
+                                                                     ${AnsiColor.BRIGHT_GREEN}$$                               O\   =   /O                              $$
+                                                                     ${AnsiColor.BRIGHT_RED}$$                            ____/`-----'\____                           $$
+                                                                     ${AnsiColor.BRIGHT_CYAN}$$                          .'  \\|       |$$  `.                         $$
+                                                                     ${AnsiColor.BRIGHT_MAGENTA}$$                         /  \\|||   :   |||$$  \                        $$
+                                                                     ${AnsiColor.BRIGHT_GREEN}$$                        /  _|||||  -:-  |||||-  \                       $$
+                                                                     ${AnsiColor.BRIGHT_YELLOW}$$                        |   | \\\   -   $$/ |   |                       $$
+                                                                     ${AnsiColor.BRIGHT_GREEN}$$                        | \_|  ''\-----/''  |   |                       $$
+                                                                     ${AnsiColor.BRIGHT_YELLOW}$$                        \  .-\___  `-`  ____/-. /                       $$
+                                                                     ${AnsiColor.BRIGHT_CYAN}$$                      ___`. .'   /--.--\   `. . ___                     $$
+                                                                     ${AnsiColor.BRIGHT_RED}$$                    ."" '<  `.____\_<|>_/____.'  >'"".                  $$
+                                                                     ${AnsiColor.BRIGHT_GREEN}$$                  | | :  `- \`.;`.\ _ /``;.`/ - ` : | |                 $$
+                                                                     ${AnsiColor.BRIGHT_YELLOW}$$                  \  \ `-.   \_ ___\ /___ _/   .-` /  /                 $$
+                                                                     ${AnsiColor.BRIGHT_CYAN}$$            ========`-.____`-.____\_____/____.-`____.-'========         $$
+                                                                     ${AnsiColor.BRIGHT_MAGENTA}$$                                  `=---='                               $$
+                                                                     ${AnsiColor.BRIGHT_YELLOW}$$            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        $$
+                                                                     ${AnsiColor.BRIGHT_GREEN}$$                     佛祖保佑          永无BUG         永不修改          $$
+                                                                     ${AnsiColor.BRIGHT_YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+                                                                                          ${AnsiColor.BRIGHT_YELLOW}Spring Boot: ${spring-boot.formatted-version}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付</title>
+    <script src="/js/qrcode.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div ><a href="dingdan.html">订单详情</a><span></span></div>
+<div>
+    订单号：<span id="dingdan_ssn"></span><br>
+    总价：<span id="zongjia_ssn"></span><br>
+    支付状态：<span id="payStatus"></span>
+</div>
+<div id="qrcode"></div>
+</body>
+<script type="text/javascript">
+
+    // 进行ajax的全局设置
+    $.ajaxSetup({
+        //data:{"name":sessionStorage.getItem("token")}
+        headers: {
+            'token': sessionStorage.getItem("login_token")
+        },
+        //数据加载完成后
+        complete:function(a,b,c){
+            var data=a.responseJSON;
+            if(data.code==1000){
+                alert(data.message);
+                location.href="login.html"
+            }
+            //debugger
+        }
+        /* beforeSend: function(xhr) {
+             debugger;
+             xhr.setRequestHeader("token:'"+sessionStorage.getItem("login_token")+"'");
+         }*/
+    });
+
+
+    orderId = sessionStorage.getItem("orderId")
+    money = sessionStorage.getItem("money")
+debugger
+
+    $(function () {
+        initOrder()
+    })
+
+
+    function initOrder(){
+        // alert(orderId)
+        // alert(money)
+        $.get({
+            url:"http://192.168.1.2:8088/order/createCode",
+            dataType:"json",
+            data:{"orderId":orderId,"money":money},
+            success:function (data) {
+                // alert(data.code)
+                if (data.code == 200){
+                    $("#dingdan_ssn").html(orderId)
+                    $("#zongjia_ssn").html(money)
+                    // alert(data.data)
+                    if (data.data.code == 200){
+                        new QRCode(document.getElementById("qrcode"), data.data.code_url);  // 设置要生成二维码的链接
+                        setInterval(queryPayStatus,1000*3);
+                    }else {
+                        alert("生成微信二维码异常："+data.data.data)
+                    }
+
+                }else {
+                    alert("生成二维码失败")
+                }
+            },error:function () {
+                alert("请求生成二维码异常")
+            }
+        })
+    }
+
+
+    function queryPayStatus() {
+        $.get({
+            url:"http://192.168.1.2:8088/order/queryPayStatus",
+            dataType:"json",
+            data:{"orderId":orderId},
+            success:function (data) {
+                if (data.data == 0){
+                    $("#payStatus").html("未支付");
+                }else if (data.data == 1){
+                    location.href = "success.html"
+                }else if (data.data == 2){
+                    $("#payStatus").html("支付中");
+                }else if (data.data == 3){
+                    ("#payStatus").html("已关闭");
+                }
+            },error:function () {
+                alert("请求支付状态异常")
+            }
+        })
+    }
+
+
+
+
+
+</script>
+</html>

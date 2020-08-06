@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>购物车</title>
+  <link rel="stylesheet" type="text/css" href="./res/static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="./res/layui/css/layui.css">
+  <script type="text/javascript" src="./res/layui/layui.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <!-- 引入bootstrap -->
+  <link href="./js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="./js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <!--引入bootbox-->
+  <script type="text/javascript" src="./js/bootbox/bootbox.all.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+</head>
+<body>
+
+  <div class="site-nav-bg">
+    <div class="site-nav w1200">
+      <p class="sn-back-home">
+        <i class="layui-icon layui-icon-home"></i>
+        <a href="./index.html">首页</a>
+      </p>
+      <div class="sn-quick-menu">
+        <div class="login"><a href="login.html">登录</a></div>
+        <div class="sp-cart"><a href="shopcart.html">购物车</a><span></span></div>
+          <div ><a href="dingdan.html">订单详情</a><span></span></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="header">
+    <div class="headerLayout w1200">
+      <div class="headerCon">
+        <h1 class="mallLogo">
+          <a href="#" title="母婴商城">
+            <img src="./res/static/img/logo.png">
+          </a>
+        </h1>
+        <div class="mallSearch">
+          <form action="" class="layui-form" novalidate>
+            <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">
+                <i class="layui-icon layui-icon-search"></i>
+            </button>
+            <input type="hidden" name="" value="">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content content-nav-base shopcart-content">
+    <div class="main-nav">
+      <div class="inner-cont0">
+        <div class="inner-cont1 w1200">
+          <div class="inner-cont2">
+            <a href="commodity.html" class="active">所有商品</a>
+            <a href="buytoday.html">今日团购</a>
+            <a href="information.html">母婴资讯</a>
+            <a href="jiesuan.html">查看订单</a>
+            <a href="about.html">关于我们</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="banner-bg w1200">
+      <h3>夏季清仓</h3>
+      <p>宝宝被子、宝宝衣服3折起</p>
+    </div>
+    <div class="cart w1200">
+      <div class="cart-table-th">
+        <div class="th th-chk">
+          <div class="select-all">
+            <div class="cart-checkbox">
+              <!--<input  id="checkAll" onclick="checkedAll(this.id)" type="checkbox" >-->
+            </div>
+          <label>&nbsp;&nbsp;全选</label>
+          </div>
+        </div>
+        <div class="th th-item">
+          <div class="th-inner">
+            商品
+          </div>
+        </div>
+        <div class="th th-price">
+          <div class="th-inner">
+            单价
+          </div>
+        </div>
+        <div class="th th-amount">
+          <div class="th-inner">
+            数量
+          </div>
+        </div>
+        <div class="th th-sum">
+          <div class="th-inner">
+            小计
+          </div>
+        </div>
+        <div class="th th-op">
+          <div class="th-inner">
+            操作
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="OrderList">
+        <div class="order-content" id="list-cont">
+
+
+        </div>
+      </div>
+
+
+      <div class="FloatBarHolder layui-clear">
+        <div class="th th-chk">
+          <div class="select-all">
+            <div class="cart-checkbox">
+              <!--<input  id="" name="select-all" type="checkbox"  value="true">-->
+            </div>
+            <label>&nbsp;&nbsp;已选<span  id="checkNum_ssn">0</span>件</label>
+          </div>
+        </div>
+        <div class="th batch-deletion">
+          <span class="batch-dele-btn">批量删除</span>
+        </div>
+        <div class="th Settlement">
+          <button class="layui-btn" onclick="location.href='jiesuan.html'">结算</button>
+        </div>
+        <div class="th total">
+          <p>应付：<span class="pieces-total" id="totalMoney_ssn">0</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+    // 进行ajax的全局设置
+    $.ajaxSetup({
+        //data:{"name":sessionStorage.getItem("token")}
+        headers: {
+            'token': sessionStorage.getItem("login_token")
+        },
+        //数据加载完成后
+        complete:function(a,b,c){
+            var data=a.responseJSON;
+            if(data.code==1000){
+                alert(data.message);
+                location.href="login.html"
+            }
+            //debugger
+        }
+        /* beforeSend: function(xhr) {
+             debugger;
+             xhr.setRequestHeader("token:'"+sessionStorage.getItem("login_token")+"'");
+         }*/
+    });
+
+  layui.config({
+    base: './res/static/js/util/' //你存放新模块的目录，注意，不是layui的模块目录
+  }).use(['mm','jquery','element','car'],function(){
+    var mm = layui.mm,$ = layui.$,element = layui.element,car = layui.car;
+    car.init()
+});
+
+
+
+  $(function () {
+      initCart();
+      checkeDlick();
+      })
+
+
+
+  function initCart() {
+
+      $.get({
+          url:"http://192.168.1.2:8088/cart",
+          dataType:"json",
+          async:false,
+          success:function (data) {
+              if (data.code == 200){
+
+
+                  var cartData = data.data;
+                  var htmls = "";
+                  for (var i = 0; i < cartData.length; i++) {
+                      //字符串转json
+                      var cartJson = JSON.parse(cartData[i])
+
+                      var isCheckHtml="";
+                      if(cartJson.check==true){
+                          isCheckHtml='<input id="'+cartJson.id+'" type="checkbox"  onchange="checkeDlick()" checked num="all"  value="'+cartJson.money+'" name="checkAll">';
+                      }else {
+                          isCheckHtml='<input id="'+cartJson.id+'" type="checkbox"  onchange="checkeDlick()"  num="all" value="'+cartJson.money+'" name="checkAll">';
+                      }
+                      htmls += '<ul class="item-content layui-clear">\n' +
+                          '            <li class="th th-chk">\n' +
+                          '              <div class="select-all">\n' +
+                          '                <div class="cart-checkbox">\n' +
+                          isCheckHtml +
+                          '                </div>\n' +
+                          '              </div>\n' +
+                          '            </li>\n' +
+                          '            <li class="th th-item">\n' +
+                          '              <div class="item-cont">\n' +
+                          '                <a href="javascript:;"><img  src="'+cartJson.img+'" alt=""></a>\n' +
+                          '                <div class="text">\n' +
+                          '                  <div class="title" >'+cartJson.name+'</div>\n' +
+                          '                  <p><span>粉色</span>  <span>130</span>cm</p>\n' +
+                          '                </div>\n' +
+                          '              </div>\n' +
+                          '            </li>\n' +
+                          '            <li class="th th-price">\n' +
+                          '              <span class="th-su" >'+cartJson.price+'</span>\n' +
+                          '            </li>\n' +
+                          '            <li class="th th-amount">\n' +
+                          '              <div class="box-btn layui-clear">\n' +
+                          '                <div class="<!--less--> layui-btn" onclick="cartDown('+cartJson.id+')">-</div>\n' +
+                          '                <input class="Quantity-input" type="" name="" id="count_ssn'+cartJson.id+'" value="'+cartJson.count+'" disabled="disabled">\n' +
+                          '                <div class="<!--add--> layui-btn" onclick="cartUp('+cartJson.id+')">+</div>\n' +
+                          '              </div>\n' +
+                          '            </li>\n' +
+                          '            <li class="th th-sum">\n' +
+                          '              <span class="sum" >'+cartJson.money+'</span>\n' +
+                          '            </li>\n' +
+                          '            <li class="th th-op">\n' +
+                          '              <span  onclick="delCart('+cartJson.id+')">删除</span>\n' +
+                          '            </li>\n' +
+                          '          </ul>';
+
+                  }
+
+                  $("#list-cont").html(htmls)
+
+
+              }
+
+
+          },error:function () {
+              alert("请求购物车数据异常！")
+          }
+      })
+}
+
+
+
+    function checkeDlick() {
+        var checkNum=0;
+        var totalMoney=0;
+        var checkIds="";
+        $("[name='checkAll']:checked").each(function () {
+            totalMoney=totalMoney+Number(this.value);
+            checkNum++;
+            debugger
+            checkIds+=this.id+",";
+        })
+        // alert(checkIds);
+        //修改页面上的元素
+        $("#checkNum_ssn").text(checkNum);
+        $("#totalMoney_ssn").text(totalMoney);
+        //更新redis的状态
+
+        $.get({
+            url:"http://192.168.1.2:8088/cart/updateCartProStatus",
+            dataType:"json",
+            data:{"ids":checkIds},
+            success:function (rs) {
+                if(rs.code!=200){
+                    alert(rs.message);
+                }
+
+            },error:function () {
+                alert("请你吃糖");
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+function delCart(id) {
+      $.get({
+          url:"http://192.168.1.2:8088/cart/deleteCartPro",
+          dataType:"json",
+          data:{"id":id},
+          success:function (data) {
+              if (data.code == 200){
+
+                  alert("删除成功")
+                  initCart();
+                  checkeDlick();
+              }
+          },error:function () {
+              alert("删除购物车商品异常！")
+          }
+      })
+
+}
+
+
+
+
+function cartUp(id) {
+    $.post({
+        url:"http://192.168.1.2:8088/cart/addToCart",
+        jsonType:"json",
+        data:{"id":id,"count":1},
+        success:function (data) {
+            if (data.code == 200){
+
+                if (data.data > 0){
+                    //数量加一
+                    var cartStock = $("#count_ssn"+id).val()
+                    $("#count_ssn"+id).val(Number(cartStock) + 1)
+                    initCart();
+                    checkeDlick();
+                }else {
+                    alert("库存不足")
+
+                }
+            }
+        },error:function () {
+            alert("增加数量异常！")
+        }
+    })
+}
+
+function cartDown(id) {
+    $.post({
+        url:"http://192.168.1.2:8088/cart/addToCart",
+        jsonType:"json",
+        data:{"id":id,"count":-1},
+        success:function (data) {
+            if (data.code == 200){
+
+               if ($("#count_ssn"+id).val() <= 1){
+                   alert("宝贝数量不能再减少了")
+               }else {
+                   initCart();
+                   checkeDlick();
+               }
+            }
+        },error:function () {
+            alert("减少数量异常！")
+        }
+    })
+}
+
+
+function checkedAll() {
+    if (this.checked==true){
+        $("#checkAll").checked = true;
+    }
+}
+
+
+
+
+</script>
+</body>
+</html>
