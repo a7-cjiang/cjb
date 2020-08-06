@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./res/static/css/main.css">
+  <link rel="stylesheet" type="text/css" href="./res/layui/css/layui.css">
+  <script type="text/javascript" src="./res/layui/layui.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <!-- 引入bootstrap -->
+  <link href="./js/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="./js/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <!--引入bootbox-->
+  <script type="text/javascript" src="./js/bootbox/bootbox.all.min.js"></script>
+  <!-- 引入fileInput-->
+  <link href="./js/bootstrap-fileinput-v5.0.6-17/css/fileinput.css" rel="stylesheet" type="text/css">
+  <script src="./js/bootstrap-fileinput-v5.0.6-17/js/fileinput.js"></script>
+  <!--引入datetimepse-->
+  <link href="./js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css">
+  <script src="./js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+  <script src="./js/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+  <!--引入validate插件-->
+  <link href="./js/bootstrapvalidator-v0.5.2-0/dist/css/bootstrapValidator.css" rel="stylesheet" type="text/css">
+  <script src="./js/bootstrapvalidator-v0.5.2-0/dist/js/bootstrapValidator.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+</head>
+<body>
+
+  <div class="site-nav-bg">
+    <div class="site-nav w1200">
+      <p class="sn-back-home">
+        <i class="layui-icon layui-icon-home"></i>
+        <a href="./index.html">首页</a>
+      </p>
+      <div class="sn-quick-menu">
+        <div class="login"><a href="login.html">登录</a></div>
+        <div class="sp-cart"><a href="shopcart.html">购物车</a><span>2</span></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="header">
+    <div class="headerLayout w1200">
+      <div class="headerCon">
+        <h1 class="mallLogo">
+          <a href="#" title="母婴商城">
+            <img src="./res/static/img/logo.png">
+          </a>
+        </h1>
+        <div class="mallSearch">
+          <form action="" class="layui-form" novalidate>
+            <input type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input" placeholder="请输入需要的商品">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">
+                <i class="layui-icon layui-icon-search"></i>
+            </button>
+            <input type="hidden" name="" value="">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content content-nav-base  login-content">
+    <div class="main-nav">
+      <div class="inner-cont0">
+        <div class="inner-cont1 w1200">
+          <div class="inner-cont2">
+            <a href="commodity.html" class="active">所有商品</a>
+            <a href="buytoday.html">今日团购</a>
+            <a href="information.html">母婴资讯</a>
+            <a href="about.html">关于我们</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-bg">
+      <div class="login-cont w1200">
+        <div class="form-box">
+          <form class="layui-form" action="">
+            <legend>用户登录</legend>
+            <div class="layui-form-item">
+              <div class="layui-inline iphone">
+                <div class="layui-input-inline">
+                  <i class="layui-icon layui-icon-cellphone iphone-icon"></i>
+                  <input type="tel" name="phone" id="phone" lay-verify="required|phone" placeholder="用户名/手机号" autocomplete="off" class="layui-input">
+                </div>
+              </div>
+              <div class="layui-inline veri-code">
+                <div class="layui-input-inline">
+                  <input id="pnum" type="text" name="pnum" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+                  <input type="button" onclick="sendMessage()" class="layui-btn" id="find"  value="获取验证码" />
+                </div>
+              </div>
+            </div>
+            <div class="layui-form-item login-btn">
+              <div class="layui-input-block">
+                <button class="layui-btn" type="button"  onclick="login()">登录</button>
+              </div>
+              <div class="layui-input-block">
+                <button type="button" class="layui-btn"  lay-filter="demo1" onclick="zhuce()">注册</button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="ng-promise-box">
+      <div class="ng-promise w1200">
+        <p class="text">
+          <a class="icon1" href="javascript:;">7天无理由退换货</a>
+          <a class="icon2" href="javascript:;">满99元全场免邮</a>
+          <a class="icon3" style="margin-right: 0" href="javascript:;">100%品质保证</a>
+        </p>
+      </div>
+    </div>
+    <div class="mod_help w1200">
+      <p>
+        <a href="javascript:;">关于我们</a>
+        <span>|</span>
+        <a href="javascript:;">帮助中心</a>
+        <span>|</span>
+        <a href="javascript:;">售后服务</a>
+        <span>|</span>
+        <a href="javascript:;">母婴资讯</a>
+        <span>|</span>
+        <a href="javascript:;">关于货源</a>
+      </p>
+      <p class="coty">母婴商城版权所有 &copy; 2012-2020</p>
+    </div>
+  </div>
+
+
+
+  <div id="zhuceDiv" style="display: none">
+    <form id="zhuceForm" class="form-horizontal" role="form">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">用户名:</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="addusername" name="addusername" type="text">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">手机号：</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="addNumber" name="addNumber" type="text">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">生日：</label>
+        <div class="col-sm-10">
+          <input class="form-control" id="addbirthday" type="text">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label">头像:</label>
+        <div class="col-sm-10">
+          <input id="addImg" name="img" type="file">
+          <input type="hidden" name="avatar"  id="imgValue">
+        </div>
+      </div>
+      <!-- select选择框相关 -->
+      <div class="form-group">
+        <label class="col-sm-2 control-label">地区:</label>
+        <div class="col-md-4">
+          <label class="col-sm-2 control-label">省:</label>
+          <select class="form-control" name="provice" id="provice" onchange="showType(this.value,1)">
+
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label class="col-sm-2 control-label">市:</label>
+          <select class="form-control" name="city" id="city"  onchange="showType(this.value,2)">
+            <option value='-1'>--请选择--</option>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label class="col-sm-2 control-label">县:</label>
+          <select class="form-control"  name="county" id="county">
+            <option value='-1'>--请选择--</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+          <input class="btn btn-success" onclick="adduser()" value="注册"  type="button">
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <script type="text/javascript">
+   layui.config({
+       base: './res/static/js/util' //你存放新模块的目录，注意，不是layui的模块目录
+   }).use(['jquery','form'],function(){
+       var $ = layui.$,form = layui.form;
+   })
+
+   var countdown=300;
+   function settime(obj) {
+       if (countdown == 0) {
+           obj.removeAttribute("disabled");
+           obj.classList.remove("layui-btn-disabled")
+           obj.value="获取验证码";
+           countdown = 300;
+           return;
+       } else {
+
+           obj.value="重新发送(" + countdown + ")";
+           countdown--;
+       }
+       setTimeout(function() {
+               settime(obj) }
+           ,1000)
+   }
+
+
+
+    function sendMessage() {
+        var phone = $("#phone").val()
+
+        if (/^1\d{10}$/.test($("#phone").val()) || ($("#phone").val().length >= 3 &&  $("#phone").val().length <= 8)){
+
+            $.get({
+                url:"http://192.168.1.160:8088/vip/sendMessage",
+                dateType:"json",
+                data:{"phone":phone},
+                success:function (data) {
+                    if (data.code == 200){
+                        $("#find").addClass(" layui-btn-disabled");
+                        $('#find').attr('disabled',"true");
+                        settime($("#find")[0]);
+                        $("#msg").text(data.msg);
+                    }else {
+                        layer.msg(data.msg);
+                    }
+                },error:function () {
+                    layer.msg("发送验证码失败!")
+                }
+            })
+
+        }else {
+            layer.msg("请输入正确的用户名/手机号");
+        }
+    }
+
+
+    function login() {
+
+       //获取手机号
+       var phone = $("#phone").val()
+        //获取验证码
+       var code = $("#pnum").val()
+       $.get({
+           url:"http://192.168.1.160:8088/vip/login",
+           dataType:"json",
+           data:{"phone":phone,"code":code},
+           success:function (data) {
+               if (data.data.status == 200){
+                   //获取密钥token
+                   var token = data.data.token;
+                   //将密钥存入浏览器中  sessionStorage localstory 区别区别是存值的存活范围
+                   sessionStorage.setItem("login_token",token);
+                    layer.msg("登录成功！")
+                   window.location.href="javascript:history.go(-1)";
+               }else {
+                   layer.msg(data.data.message);
+               }
+           },error:function () {
+               layer.msg("登录异常！")
+           }
+       })
+
+    }
+
+
+
+
+
+
+
+
+
+   var districts;
+   var zhuceBootbox;
+   function zhuce() {
+
+       //获取指定的元素的html
+       zhuceBootbox= bootbox.dialog({
+           message:$("#zhuceDiv").html(),
+           title:"注册信息"
+       });
+       // 初始化日期插件
+       $("#addbirthday",zhuceBootbox).datetimepicker({
+           format: 'yyyy-mm-dd',  //显示格式
+           language:"zh-CN",
+           minView:2
+       });
+       //初始化fileINput插件
+       $("#addImg",zhuceBootbox).fileinput({
+           uploadUrl:"http://192.168.1.160:8088/noLoginController/uploadAvatar.do", //上传的地址
+           browseClass:"btn btn-success", //按钮样式
+           dropZoneEnabled: false
+       }).on("fileuploaded", function(e, data, previewiId, index) {
+           //把文件的访问路径  赋给隐藏域
+           $("#imgValue",zhuceBootbox).val(data.response.data.filePath);
+       });
+       //初始化validate    验证 账号 （不能为空 ）  密码 （不能为null）
+       $("#zhuceForm",zhuceBootbox).bootstrapValidator({
+           feedbackIcons: {//相关提示图表
+               valid: 'glyphicon glyphicon-ok',//验证通过
+               invalid: 'glyphicon glyphicon-remove',//验证失败
+               validating: 'glyphicon glyphicon-refresh'//验证时
+           },fields: {//验证的元素
+               addusername:{
+                   validators:{//验证要求
+                       notEmpty:{
+                           message:"用户名不能为空"
+                       },
+                       remote:{
+                           url:"http://192.168.1.160:8088/noLoginController/checkedByName.do",
+                           message:'用户名已存在',
+                           delay:1000,
+                           type:'get',
+                           data:function (validator) {//validat:true 或 false
+                               return{
+                                   addusername:$("input[name=addusername]").val(),
+                               }
+                           }
+                       },stringLength: {
+                           min:3,
+                           max:8,
+                           message: '用户名长度必须在3到8位之间'
+                       }
+                   }
+               },addNumber:{
+                   validators:{//验证要求
+                       notEmpty:{
+                           message:"手机号不能为空"
+                       },remote:{
+                           url:"http://192.168.1.160:8088/noLoginController/checkedByNumber.do",
+                           message:'手机号已存在',
+                           delay:1000,
+                           type:'get',
+                           data:function (validator) {//validat:true 或 false
+                               return{
+                                   addNumber:$("input[name=addNumber]").val(),
+                               }
+                           }
+                       },regexp: {
+                           regexp: /^1[3456789]\d{9}$/,
+                           message: '手机号格式不对'
+                       }
+                   }
+               }
+           }
+       });
+
+
+       $.get({
+           url:"http://192.168.1.160:8088/district/getRedisDistrict.do",
+           dataType:"json",
+           async:false,
+           success:function (data) {
+               if(data.code == 200){
+                   districts=  JSON.parse(data.data);
+                   var  proviceHtml="<option value='-1'>--请选择--</option>";
+                   for (var i = 0; i < districts.length; i++) {
+                       if(districts[i].pid == 0){
+                           //取出具体的一个数据  判断是否为省
+                           proviceHtml+='<option value="'+districts[i].id+'">'+districts[i].name+'</option>'
+                       }
+
+                   }
+                   //将拼接的内容  填充到下拉框中
+                   $("#provice",zhuceBootbox).html(proviceHtml);
+               }
+           },error:function () {
+               alert("请求地区异常！")
+           }
+       });
+   };
+   function adduser() {
+       $('#zhuceForm',zhuceBootbox).data("bootstrapValidator").validate();//校验效果
+       var flag = $('#zhuceForm',zhuceBootbox).data("bootstrapValidator").isValid();//校验合格
+       if(flag==true){
+           //获取提交的值
+           var name=$("#addusername",zhuceBootbox).val();
+           var number=$("#addNumber",zhuceBootbox).val();
+           var birthday=$("#addbirthday",zhuceBootbox).val();
+           var img=$("#imgValue",zhuceBootbox).val();
+
+           var  provice= $("#provice",zhuceBootbox).val();
+           var  city= $("#city",zhuceBootbox).val();
+           var  county=$("#county",zhuceBootbox).val();
+
+           var district =","+provice+","+city+","+county+",";
+
+
+           $.get({
+               url:"http://192.168.1.160:8088/noLoginController/addUserVip.do",
+               dataType:"json",
+               data:{
+                   "name":name,
+                   "number":number,
+                   "img":img,
+                   "birthday":birthday,
+                   "district":district
+               },
+               success:function (rs) {
+                   if(rs.code == 200){
+                       alert("注册成功");
+                       //关闭弹框
+                       zhuceBootbox.modal("hide");
+                   }else{
+                       alert("注册服务端异常："+rs.message);
+                   }
+               },error:function () {
+                   bootbox.alert("注册失败");
+               }
+           });
+       }
+
+   }
+   function showType(pid,ty) {
+
+       var typeData = districts;
+       var typeHtml = "<option value='-1'>--请选择--</option>";
+       for (var i = 0; i < typeData.length; i++) {
+           if (typeData[i].pid == pid) {
+               typeHtml += '<option value="' + typeData[i].id + '">' + typeData[i].name + '</option>'
+           }
+       }
+       if (ty == 1) {
+           //将拼接的内容  填充到下拉框中
+           $("#city", zhuceBootbox).html(typeHtml);
+           $("#county", zhuceBootbox).html("<option value='-1'>--请选择--</option>");
+       } else if (ty == 2) {
+           $("#county", zhuceBootbox).html(typeHtml);
+
+       }
+
+   }
+
+
+  </script>
+
+</body>
+</html>
